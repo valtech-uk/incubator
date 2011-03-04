@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:jaxrs="http://cxf.apache.org/jaxrs"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+                           http://cxf.apache.org/jaxrs http://cxf.apache.org/schemas/jaxrs.xsd
+                           http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+
+  <!-- Apache CXF setup -->
+  <import resource="classpath:META-INF/cxf/cxf.xml"/>
+  <import resource="classpath:META-INF/cxf/cxf-extension-jaxrs-binding.xml"/>
+  <import resource="classpath:META-INF/cxf/cxf-servlet.xml"/>
+
+  <!-- Set up the JAX-RS server -->
+  <jaxrs:server id="accountServer" address="/accounts">
+    <jaxrs:serviceBeans>
+      <ref bean="accountService"/>
+    </jaxrs:serviceBeans>
+    <jaxrs:providers>
+      <ref bean="jaxbXmlProvider"/>
+      <ref bean="jaxbJsonProvider"/>
+    </jaxrs:providers>
+  </jaxrs:server>
+
+  <!-- Set up the account webservices -->
+  <bean id="accountService" class="com.valtech.demo.service.dao.AccountService"/>
+
+  <!-- Standard webservice message providers for XML and JSON -->
+  <bean id="jaxbXmlProvider" class="org.apache.cxf.jaxrs.provider.JAXBElementProvider">
+    <property name="jaxbElementClassMap" ref="elementClassMap"/>
+  </bean>
+  <bean id="jaxbJsonProvider" class="org.apache.cxf.jaxrs.provider.JSONProvider">
+    <property name="jaxbElementClassMap" ref="elementClassMap"/>
+  </bean>
+  <util:map id="elementClassMap">
+    <entry key="com.valtech.demo.service.beans.Result" value="result"/>
+  </util:map>
+
+</beans>
