@@ -34,7 +34,7 @@ values included in the simpleupload.properties file in the WAR.
 
 For Tomcat, you can add the properties to <Tomcat>/conf/catalina.properties
 For Jetty (run as Maven plugin), do:
-	> export MAVEN_OPTS='-Dupload.<property>=<value>' ; mvn jetty:run
+	> MAVEN_OPTS='-Dupload.<property>=<value>' ; mvn jetty:run
 
 Properties that you will probably want to change:
 - - - - - - - - - - - - - - - - - - - - - - - - -
