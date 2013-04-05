@@ -6,7 +6,7 @@
 	<title><%=SimpleUploadConfig.getSharedInstance().getTitle()%></title>
 	<link rel="stylesheet" type="text/css" href="css/main.css"/>
 	<meta name="viewport" content="width=device-width">
-	<script type="text/javascript" src="js/jquery-1.9.1.js"></script>
+	<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
 	<script type="text/javascript">
 		$(function() {
 			window.resetUploadMonitor = function(uploadId) {

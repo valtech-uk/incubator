@@ -5,7 +5,7 @@
 <head>
 	<title>%=SimpleUploadConfig.getSharedInstance().getTitle()%></title>
 	<link rel="stylesheet" type="text/css" href="css/upload.css"/>
-	<script type="text/javascript" src="js/jquery-1.9.1.js"></script>
+	<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
 	<script type="text/javascript">
 		$(function() {
 			var uploadId = '<%=UUID.randomUUID().toString().replace("-", "")%>';
