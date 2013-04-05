@@ -1,0 +1,72 @@
+Introduction
+==================================================
+
+SimpleUpload is a small simple J2EE application for quickly setting up a file upload server.
+It uses the commons-fileupload library internally to do the heavy lifting.
+
+
+Installation
+==================================================
+
+SimpleUpload is a standard Maven 2 project.
+To download the dependencies and build the WAR file, just cd to the project root folder and run:
+
+	> mvn install
+
+The generated WAR file can then be installed into your preferred J2EE application server (e.g.: Tomcat, JBoss).
+
+To run locally in a Jetty application server:
+
+	> mvn jetty:run
+
+
+Configuration
+==================================================
+
+Configuration values are read from the following locations, in order of precedence:
+
+	1. Java system properties.
+	2. simpleupload.properties in the classpath (when built using Maven, one is included in the generated WAR).
+	3. Internal hard-coded defaults.
+
+In practice, this means that you will probably configure SimpleUpload using system properties to override the
+values included in the simpleupload.properties file in the WAR.
+
+For Tomcat, you can add the properties to <Tomcat>/conf/catalina.properties
+For Jetty (run as Maven plugin), do:
+	> export MAVEN_OPTS='-Dupload.<property>=<value>' ; mvn jetty:run
+
+Properties that you will probably want to change:
+- - - - - - - - - - - - - - - - - - - - - - - - -
+
+- upload.folder
+This specifies the folder in which to save the uploaded files.
+
+- upload.maxBytes
+This specifies the maximum size allowed for uploads, in bytes.
+
+Other properties:
+- - - - - - - - - - - - - - - - - - - - - - - - -
+
+- upload.inMemory.maxBytes
+Uploaded files smaller than this value (in bytes) will be stored in memory during the upload.
+Files larger than this value will be streamed to disk as they are uploaded.
+
+- upload.title
+This value will be used as the title and header of the upload page.
+HTML is allowed here, and will be written to the page as-is.
+
+
+Source notes
+==================================================
+
+- index.jsp
+The main upload web page, contains the main UI for uploading files.
+
+- upload.jsp
+Contains the form for submitting the file for upload.  Included as an iFrame by index.jsp.
+
+- SimpleUploadServlet.java
+The main upload servlet.
+Provides a POST request handler for accepting file data for upload.  Redirects back to upload.jsp when complete.
+Provides a GET request handler for querying the progress of uploaded files.  Returns a JSON response.
