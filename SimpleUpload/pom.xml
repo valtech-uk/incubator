@@ -46,6 +46,11 @@
 		</dependency>
 	</dependencies>
 
+	<scm>
+		<connection>scm:git:https://github.com/valtech-uk/incubator.git</connection>
+		<developerConnection>scm:git:https://github.com/valtech-uk/incubator.git</developerConnection>
+	</scm>
+
 	<build>
 		<finalName>SimpleUpload</finalName>
 		<plugins>
