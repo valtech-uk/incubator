@@ -1,0 +1,61 @@
+/* Copyright (c) 2013 Valtech UK Ltd. */
+
+* {
+	margin: 0;
+	padding: 0;
+	font-family: Helvetica, Arial, sans-serif;
+}
+
+body {
+	padding: 0;
+	font-size: 11pt;
+	background: #dde5ff;
+}
+
+.filePanel {
+	margin: 40px 0 50px 0;
+	font-size: 110%;
+}
+
+#uploadedFile {
+	display: block;
+	width: 90%;
+	margin: 0 auto;
+	border: 1px solid #679;
+	border-radius: 6px;
+	padding: 0.3em;
+	background: #eef;
+}
+
+#uploadSubmit {
+	display: block;
+	letter-spacing: 0.05em;
+	font-size: 125%;
+	padding: 0.5em 1em;
+	width: 70%;
+	margin: 0 auto;
+	border: 2px solid #23a;
+	border-radius: 12px;
+	background: #679;
+	color: #f8f8ff
+}
+#uploadSubmit:hover {
+	background: #459;
+	border-color: #23a;
+	cursor: pointer;
+}
+#uploadSubmit:active {
+	background: #23a;
+	color: #fff;
+	border-color: #fff;
+	cursor: pointer;
+}
+
+.mandatory {
+	display: none;
+	color: #e31;
+	font-size: 8pt;
+	margin-left: 2em;
+	padding: 0.25em 0;
+	position: absolute;
+}

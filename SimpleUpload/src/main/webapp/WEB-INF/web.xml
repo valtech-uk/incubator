@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 2013 Valtech UK Ltd. -->
+<web-app xmlns="http://java.sun.com/xml/ns/javaee" version="2.5"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+	<display-name>Simple Upload web-app</display-name>
+	<servlet>
+		<servlet-name>SimpleUploadHandler</servlet-name>
+		<servlet-class>com.valtech.simpleupload.webapp.SimpleUploadServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>SimpleUploadHandler</servlet-name>
+		<url-pattern>/handler</url-pattern>
+	</servlet-mapping>
+</web-app>
