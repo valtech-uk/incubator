@@ -4,3 +4,6 @@
 # Maven build products
 target/
 
+# Maven release products
+release.properties
+pom.xml.releaseBackup
